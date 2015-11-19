@@ -176,7 +176,7 @@ class Notice extends MY_Controller {
 
 	}
 
-	public function add() {
+	public function add_form() {
 		if (!$this->session->userdata('is_login')) {
 			$this->session->set_flashdata('message', '로그인이 필요한 서비스 입니다.');
 			redirect($this->input->get('curl').'/#login_form');
@@ -187,28 +187,34 @@ class Notice extends MY_Controller {
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 
-		$this->_header('main-header');
+		$this->_header('notice');
+
+		// 현재 카테고리 위치 가져오기
+		$categories = array('main-category'=>$this->main_category);
+
+		$categories += array('sub-category'=>array('name'=>'공지 작성', 'path'=>'/diary'));
+
 		$this->load->library('form_validation');
 		
 		$this->form_validation->set_rules('title', '제목', 'required');
-		$this->form_validation->set_rules('contentArea', '본문', 'required');
+		$this->form_validation->set_rules('notice_add', '본문', 'required');
 		
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('addNotice');
+			$this->load->view('notice_add', array('categories'=>$categories));
 		} else {
 			$this->load->model('notice_model');
 
 			if (! $file = $this->upload_receive('attachment')) { // 첨부파일이 없을경우
-				$this->notice_model->add($this->input->post('category'), $this->input->post('title'), $this->input->post('contentArea'), $this->session->userdata('userid'));
+				$this->notice_model->add($this->input->post('category'), $this->input->post('title'), $this->input->post('notice_add'), $this->session->userdata('userid'));
 			} else {
-				$this->notice_model->addFile($this->input->post('category'), $this->input->post('title'), $this->input->post('contentArea'), $this->session->userdata('userid'), $file['orig_name'], $file['file_name']);
+				$this->notice_model->addFile($this->input->post('category'), $this->input->post('title'), $this->input->post('notice_add'), $this->session->userdata('userid'), $file['orig_name'], $file['file_name']);
 			}
 			$this->session->set_flashdata('message', '게시글 작성 성공');
 
 			redirect(site_url('/Notice/main_notice'));
 		}
 
-		$this->_footer('main-footer');
+		$this->_footer('main_footer');
 	}
 
 	public function upload_form() {

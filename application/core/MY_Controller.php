@@ -13,10 +13,9 @@ class MY_Controller extends CI_Controller {
 
 	public function _header($index) {
 
-		$cMember = $this->users_model->get_current_member();
 		$categories = $this->category_model->get_category($cMember->member);
 		
-		$this->load->view('main_header', array('member'=>$cMember->member, 'categories'=>$categories, 'pagenum'=>$index));
+		$this->load->view('main_header', array('categories'=>$categories, 'pagenum'=>$index));
 				
 	}
 

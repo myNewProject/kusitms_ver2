@@ -23,13 +23,20 @@
 		</div>
 	</div>
 	<!-- END PAGE HEADER-->
+	
+	<? if ($this->session->userdata('postAuth')) { ?>
+	<!-- BEGIN ADD FORM -->
+	<div class="col-sm-12">
+		<a href="<?=site_url('/').'Notice/add_form'?>" class="btn btn-primary pull-right">글작성</a>
+	</div>
+	<!-- END ADD FORM -->
+	<? } ?>
 
 	<!-- BEGIN PAGE CONTENT-->
 	<div class="col-sm-12">
 		<div class="panel panel-default">
 		<!-- Default panel contents -->
-		<div class="panel-heading"><?=$categories['sub-category']['name']?></div>
-
+		<div class="panel-heading"><h4><?=$categories['sub-category']['name']?></h4></div>
 		<!-- Table -->
 		<table class="table">
 			<thead>

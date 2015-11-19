@@ -3,7 +3,7 @@
 	<!-- BEGIN EDIT FORM -->
 	<div class="modal fade" id="edit" role="dialog" aria-labelledby="edit_title" aria-hidden="true">
 		<? if ($this->session->userdata('postAuth')) { ?>
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">

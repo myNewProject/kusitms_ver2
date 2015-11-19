@@ -70,7 +70,7 @@
 				$("#home").addClass("active");
 			} else if (page == 'intro') {
 				$("#nav-button1").addClass("active");
-			} else if (page == 'forum') {
+			} else if (page == 'notice') {
 				$("#nav-button2").addClass("active");
 			} else if (page == 'business') {
 				$("#nav-button3").addClass("active");
@@ -91,9 +91,17 @@
 		$('[data-toggle="popover"]').popover()
 	});
 
-
 	// 글변경 폼 CKEDITOR
-	CKEDITOR.replace('edit_content');
+	if (document.getElementById("edit_content")) {
+		CKEDITOR.replace('edit_content');
+	}
+	
+	// 공지작성 폼 CKEDITOR
+	if (document.getElementById("notice_add")) {
+		CKEDITOR.replace('notice_add', { 
+			'filebrowserUploadUrl' : '/Kusitms/Notice/upload_form'
+		});
+	}
 </script>
 <!-- END JAVASCRIPTS -->
 </body>
