@@ -9,21 +9,21 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="/GongQ/static/img/Intro1.png" alt="Intro1">
+      <img src="<?=site_url('/')?>static/img/학술제.png" alt="Intro1">
       <div class="carousel-caption">
         <h2>First</h2>
         <p>1234</p>
       </div>
     </div>
     <div class="item">
-      <img src="/GongQ/static/img/Intro2.png" alt="Intro2">
+      <img src="<?=site_url('/')?>static/img/150523교육커버최종.png" alt="Intro2">
       <div class="carousel-caption">
         <h2>Second</h2>
         <p>1234</p>
       </div>
     </div>
     <div class="item">
-      <img src="/GongQ/static/img/Intro3.png" alt="Intro3">
+      <img src="<?=site_url('/')?>static/img/150502교육커버.png" alt="Intro3">
       <div class="carousel-caption">
         <h2>Third</h2>
         <p>1234</p>
