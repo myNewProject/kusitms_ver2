@@ -44,3 +44,4 @@
 	</div>
 	<!--/row-->
 </div>
+<!-- END CONTENT -->

@@ -36,7 +36,7 @@
 	<!-- END EDIT FORM -->
 
 	<!-- BEGIN PAGE HEADER-->
-	<div class="col-md-12">
+	<div class="col-sm-12">
 		<h3 class="page-header">
 			<h1><?=$categories['main-category']['name']?> <small><?=$categories['sub-category']['name']?></small></h1>
 		</h3>
@@ -60,7 +60,7 @@
 	<!-- END PAGE HEADER-->
 
 	<!-- BEGIN PAGE CONTENT-->
-	<div class="col-md-12">
+	<div class="col-sm-12">
 		<!-- EDIT BUTTON -->
 		<? if ($this->session->userdata('postAuth')) { ?>
 			<button class="btn btn-primary" onclick="clickedButton(<?=$content->category?>)" data-toggle="modal" href="#edit">수정</button>
@@ -72,3 +72,4 @@
 	</div>
 	<!--/row-->
 </div>
+<!-- END CONTENT -->

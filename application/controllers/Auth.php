@@ -16,10 +16,10 @@ class Auth extends MY_Controller {
   // 회원 가입
   public function register() {
     if ($this->session->userdata('is_login')) {
-      redirect(site_url('/Hello'));
+      redirect(site_url('/Intro'));
     }
 
-    $this->_header('main-header');
+    $this->_header('home');
 
     $this->load->library('form_validation');
 
@@ -59,11 +59,11 @@ class Auth extends MY_Controller {
         'age'=>$this->input->post('age')
         ));
       $this->session->set_flashdata('message', '회원가입에 성공했습니다.');
-      redirect(site_url('/Hello'));
+      redirect(site_url('/Intro/#login_form'));
     }
 
 
-    $this->_footer('main-footer');
+    $this->_footer('main_footer');
   }
 
   // 로그인
