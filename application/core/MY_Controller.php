@@ -5,10 +5,6 @@ class MY_Controller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('users_model');
 		$this->load->model('category_model');
-		/*
-		if (!$this->input->is_cli_request()) {
-			$this->load->library('session');
-		}*/
 	}
 
 	public function _header($index) {
